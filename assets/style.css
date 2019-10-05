@@ -419,7 +419,7 @@ input[type=checkbox] {
     width: 26px;
     bottom: 15px;
     left: 5px; 
-    z-index: 0;
+    z-index: 1000;
 }
 .termCond {
     position: relative;
@@ -443,11 +443,11 @@ input[type=checkbox] {
 
 }
 
-.termCond:hover::before {
+ .termCond:hover::before {
     background-color: #FDBE13;
     border: 1px solid #FDBE13;
 
-}
+} 
 .chckBoxContainer .termCond::after {
     content: "\2713";
     color: #FFFFFF;
