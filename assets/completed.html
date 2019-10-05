@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Summary</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" media="screen" href="style.css" />
+    <script src="main.js" charset="utf-8" type="text/ecmascript" defer></script>
+    
+</head>
+<body>
+    <header>
+        <div class="orange-stripe"></div>
+        <div class="header-div-wrapper">
+            <div class="header-div">
+                <a href="www.swedbank.ee">
+                    <img class="logo" src="swedbank.png" alt="Swedbank Logo" >
+                </a>
+            </div>
+        </div>
+    </header>
+    <main>
+        <div class="content">
+            <div class="frame">
+                <h1>Car lease</h1>
+                <section id="myoffer" class="offer">
+                    <article class="offer-text">
+                        <h2>Summary of Your applicaton</h2>
+                        <p>Unfotunately there are still some bugs in my code. I am sure when coding daily with professionals will imporove my skills much faster than learning by myself.</p>
+                        <ul class="offer-list">
+                            <li>Car Loan – for buying a used car</li>
+                            <li>Car Lease – for buying a new or second-hand car</li>
+                        </ul>
+                        <p class="campaign">The campaign is valid from 22 October to 16 December 2018. The discount is applied if you use the promo code “Green” in your application.
+                            If you sign the contract on the basis of a personal limit offer, the contract discount shall be applied automatically.</p>
+                    </article>
+                </section>
+                <!-- Table (Options of buying a car) -->
+                <section>
+                    <h2>Leasing data SUMMARY</h2>
+                    <div class="summary">
+                    
+                    <h3 class="form-header">Vehicle</h3>
+                    <dl class="query-params-list">
+                        <dt class="fillable-row">
+                            Vehicle type:
+                        </dt>
+                        <dd id="vehicleTypeLoaded" class="fillable-row">
+                               
+                        </dd>
+                        <dt class="fillable-row">
+                            Make:
+                        </dt>
+                        <dd id="make" class="fillable-row">
+
+                        </dd>
+                        <dt class="fillable-row">
+                            Model:
+                        </dt>
+                        <dd id="model" class="fillable-row">
+                            
+                        </dd>
+                        <dt class="fillable-row">
+                            Cost of vehicle:
+                        </dt>
+                    
+                        <dd  class="fillable-row">
+                            <div id="price"></div>
+                            <span class="currency">EUR</span>
+                        </dd>
+                    </dl>
+                    <h3 class="form-header">Personal data</h3>
+                    <dl class="query-params-list">
+                        <dt class="fillable-row">
+                            First name:
+                        </dt>
+                        <dd id="firstName" class="fillable-row"> 
+                            
+                        </dd>
+                        <dt class="fillable-row">
+                            Last name:
+                        </dt>
+                        <dd id="lastName" class="fillable-row">
+
+                        </dd>
+                        <dt class="fillable-row" >
+                            Home address:
+                        </dt>
+                        <dd class="fillable-row" id="address">
+                            
+                        </dd>
+                    </dl>
+                    <h3 class="form-header">Obligations</h3>
+                    <dl class="query-params-list">
+                        <dt class="fillable-row">
+                            Type of obligation:
+                        </dt>
+                        <dd  id="oblType" class="fillable-row">
+
+                        </dd>
+                        <dt class="fillable-row">
+                            Financer:
+                        </dt>
+                        <dd id="oblOwner" class="fillable-row">
+                            
+                        </dd>
+                        <dt class="fillable-row" id="term" >
+                            Term:
+                        </dt>
+                        <dd id="oblDue" class="fillable-row">
+
+                        </dd>
+                        <dt class="fillable-row">
+                            Amount/Limit:
+                        </dt>
+                        <dd  class="fillable-row">
+                            <div id="oblSize"></div>
+                            <span class="currency">EUR</span>
+                        </dd>
+                        <dt class="fillable-row">
+                            Monthly payment:
+                        </dt>
+                        <dd  class="fillable-row">
+                            <div id="oblMonthly"></div>
+                            <span class="currency">EUR</span>
+                        </dd>
+                    </dl>
+                    <h3 class="form-header">Income</h3>
+                    <dl class="query-params-list">
+                        <dt class="fillable-row">
+                            Net salary:
+                        </dt>
+                        <dd class="fillable-row">
+                            <div id="incomeNet"></div>
+                            <span class="currency">EUR</span>
+                        </dd>
+                        <dt class="fillable-row">
+                            Sum of other monthly income:
+                        </dt>
+                        <dd class="fillable-row">
+                            <div id="incomeOth"></div>
+                            <span class="currency">EUR</span>
+                        </dd>
+                        <dt class="fillable-row">
+                            Total income:
+                        </dt>
+                        <dd class="fillable-row">
+                            <div id="incomeTot"></div>
+                            <span class="currency">EUR</span>
+                        </dd>
+                    </dl>
+                    <h3 class="form-header">Additional information</h3>
+                    <dl class="query-params-list">
+                        <dt class="fillable-row">
+                            Additional information:
+                        </dt>
+                        <dd id="info" class="fillable-row">
+
+                        </dd>
+                        <dt class="fillable-row">
+                            Terms and conditions:
+                        </dt>
+                        <dd id="accept" class="fillable-row">
+
+                        </dd>
+                    </dl>
+                </div>
+                    <script type="text/javascript"> 
+                              function processData() {
+                              var urlParams = new URLSearchParams(location.search);
+                              var allCars = urlParams.getAll('makeModel');
+                              var allOthers = urlParams.getAll('customMake');
+                              var carMake = allCars[0];
+                              var carModel = allCars[1];
+                              var otherMake = allOthers[0];
+                              var otherModel = allOthers[1];
+                              var type = urlParams.get('vehicleType');
+                              document.getElementById("vehicleTypeLoaded").innerHTML = type;
+                              if(type == 'Car'){
+                                  document.getElementById("make").innerHTML = carMake;
+
+                                // .innerHTML didn't work with those if and else statements 
+                                if (carMake ==='BMW' && carModel == '1' ) {
+                                    
+                                    document.getElementById('model').appendChild(document.createTextNode('X5'));
+                                }
+                                else if (carMake === 'BMW' && carModel === '2' ) {
+                                    document.getElementById('model').appendChild(document.createTextNode('X6'));;
+                                }
+                                else if (carMake === 'BMW' && carModel === '3' ) {
+                                    document.getElementById('model').appendChild(document.createTextNode('750'));
+                                }
+                                else if (carMake == 'Audi' && carModel == '1' ) {
+                                    document.getElementById('model').appendChild(document.createTextNode('A4'));
+                                }
+                                else if (carMake == 'Audi' && carModel == '2' ) {
+                                    document.getElementById('model').appendChild(document.createTextNode('A6'));
+                                }
+                                else if (carMake == 'Audi' && carModel == '3' ) {
+                                    document.getElementById('model').appendChild(document.createTextNode('A8'));
+                                }
+                                else if (carMake == 'Ford' && carModel == '1' ) {
+                                    document.getElementById('model').appendChild(document.createTextNode('Mondeo'));
+                                }
+                                else if (carMake == 'Ford' && carModel == '2' ) {
+                                    document.getElementById('model').appendChild(document.createTextNode('Fiesta'));
+                                }
+                                else if (carMake == 'Ford' && carModel == '3') {
+                                    document.getElementById('model').appendChild(document.createTextNode('Transit'));
+                                }
+                               
+                              }
+                              else if (type == 'Other') { 
+                                document.getElementById("make").innerHTML = otherMake;
+                                document.getElementById("model").innerHTML = otherModel;
+                              }
+                              var price = urlParams.get('costOfTheVehicle');
+                              document.getElementById('price').appendChild(document.createTextNode(price));
+                              document.getElementById('firstName').innerHTML = urlParams.get('clientFirstName');
+                              document.getElementById('lastName').innerHTML = urlParams.get('clientLastName');
+                              document.getElementById('address').innerHTML = urlParams.get('address');
+                              document.getElementById('oblType').innerHTML = urlParams.get('obligationType');
+                              document.getElementById('oblOwner').innerHTML = urlParams.get('obligationOwner');
+                              document.getElementById('oblDue').innerHTML = urlParams.get('obligationDue');
+                              document.getElementById('oblSize').innerHTML = urlParams.get('obligationLimit');
+                              document.getElementById('oblMonthly').innerHTML = urlParams.get('obligationPayment');
+                              document.getElementById('incomeNet').innerHTML = urlParams.get('incomeOwner');
+                              document.getElementById('incomeOth').innerHTML = urlParams.get('incomeOwner');
+                              document.getElementById('incomeTot').innerHTML = urlParams.get('incomeTotal');
+                              document.getElementById('info').innerHTML = urlParams.get('info');
+                              var accepted = urlParams.get('termsAndConditions');
+                              if(accepted == 'on') {
+                                document.getElementById('accept').innerHTML = 'Accepted';
+                              }
+                              
+                            }
+                            processData();</script>
+                
+                   
+                </section>
+            </div>
+            
+        </div>
+    </main>
+    <footer>
+        <div class="orange-stripe"></div>
+        <div class="footer"></div>
+    </footer>
+    
+</body>
+</html>

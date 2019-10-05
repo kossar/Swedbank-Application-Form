@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Swedbank Application Form | Leasing form</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" media="screen" href="style.css" />
+    <script src="main.js" charset="utf-8" type="text/ecmascript" defer></script>
+</head>
+<body>
+    <header>
+        <div class="orange-stripe"></div>
+        <div class="header-div-wrapper">
+            <div class="header-div">
+                <a href="www.swedbank.ee">
+                    <img class="logo" src="swedbank.png" alt="Swedbank Logo" >
+                </a>
+            </div>
+        </div>
+    </header>
+    <main>
+        <div class="content">
+                    <article class="offer-text">
+                        <h2>Swedbank leasing application</h2>
+                        <p><span>Special offer for a car lease:</span> use the promo code GREEN and get a 70% discount on the contract fee of a car loan!</p>
+                        <ul class="offer-list">
+                            <li>All Fields are required</li>
+                            <li>Leasing amount have to be at least 5000</li>
+                            <li>Obligation term have to be at least 2018</li>
+                            <li>Textarea have to have at least 5 letters</li>
+                            <li>Unfotunately there are errors in this form</li>
+                            <li>I should have invested more time in this test work in last week evenings, now I dont have much time to figure everything out</li>
+                            <li>Sunday and monday I concentrated only to this project, but looks like if I had worked with this project 8hours more last week it would be much better</li>
+                            <li>Today(Tuesday morning) had problems with checkbox, it didnt check when it was ready designed, so now it doesnt display :hover effects correctly</li>
+                            <li>My code should be cleaner, but deadline is coming in few hours so I dont have time</li>
+                            <li>And of course there are other problems too</li>
+                            <li>Sometimes when toggle between Car and other, then Car models will not be in selectbox</li>
+                        </ul>
+                    </article>
+            
+                <form action="completed.html" method="GET" id="leasingForm">
+                    <div class="progress">
+                        <ul class="questions">
+                            <li class="question active">Vehicle</li>
+                            <li class="question">Personal data</li>
+                            <li class="question">Obligations</li>
+                            <li class="question">Income</li>
+                            <li class="question">Additional information</li>
+                        </ul>
+                    </div>
+
+                    <!-- Form data Vehicle -->
+                    <div class="tab">
+                        <dl class="query-params-list">
+                            <dt class="checkable-row">
+                                Vehicle type
+                            </dt>
+                            <dd class="checkable-row">
+                                <div class="radioBtns">
+                                    <input class="form-data-input" id="vehicleType-car" name="vehicleType" onclick="check()" oninput="" type="radio" value="Car" checked="true">
+                                    <label for="vehicleType-car" class="radio-display">Car</label>
+                                </div>
+                                <div class="radioBtns">
+                                    <input class="form-data-input" id="vehicleType-other" name="vehicleType" onclick="check()" oninput="" type="radio" value="Other">
+                                    <label for="vehicleType-other" class="radio-display">Other</label>
+                                </div>
+                            </dd>
+                            
+                            <dt id="vehicleMakeRow" class="fillable-row">
+                                Make
+                                <span><em>*</em></span>
+                            </dt>
+                            <dd class="fillable-row">
+                                <select class="form-data-input" id="make" name="makeModel"  onclick="changeModels()">
+                                    <option value="--select--">--select--</option>
+                                    <option value="BMW">BMW</option>
+                                    <option value="Audi">Audi</option>
+                                    <option value="Ford">Ford</option>
+                                    
+                                </select>
+                                <input class="form-data-input" id="customMake"  maxlength="50"  name="customMake" size="7" type="text" value="" style="display: none;">
+                            </dd>
+                            <dt id="vehicleModelRow" class="fillable-row">
+                                Model
+                                <span>
+                                    <em>*</em>
+                                </span>
+                            </dt>
+                            <dd class="fillable-row">
+                                <select class="form-data-input" id="model" name="makeModel" >
+                                    <option value="--select--">--select--</option>
+                                </select>
+                                    
+                                <input class="form-data-input" id="customModel"  maxlength="50" name="customMake" size="7" type="text" value="" style="display: none;">
+                            </dd>
+                            <dt class="costOfTheVehicleRow fillable-row">
+                                Cost of vehicle
+                                <span id="cost">
+                                    <em>*</em>
+                                </span>
+                                <span class="help-action" role="tooltip"><p class="tipText">Minimum amount for leasing is 5000 EUR</p></span>
+                            </dt>
+                            <dd class="costOfTheVehicleRow fillable-row"  id="costOfTheVehicleRow">
+                                <div class="customFormRow">
+                                    <input class="form-data-input" id="costOfTheVehicle"  maxlength="12" name="costOfTheVehicle" onkeydown="isNumber(event)" size="7" type="text" value="">
+                                    <span class="currency">EUR</span>
+                                </div>
+                                <div class="priceErrorMessage">
+                                    <div class="message" id="priceNumber" style="display:none">
+                                        Please enter only numbers!
+                                    </div>
+                                    <div class="validation-message" id="val-message" style="display:none;">
+                                        Leasing application amount<br>must be no less than <strong>5000 EUR</strong>!
+                                    </div>
+                                 </div>
+                            </dd>
+                        </dl>
+                    </div><!-- ./Form data vehicle -->
+
+                    <!-- Form data Contact information -->
+                    <div class="tab">
+                        <h3 class="form-header">Contact information</h3>
+                        <dl class="query-params-list">
+                            <dt class="fillable-row">
+                                First name
+                                <span>
+                                    <em>*</em>
+                                </span>
+                            </dt>
+                        
+                        <dd class=" fillable-row">
+                            <input class="form-data-input" id="clientFirstName" maxlength="50" name="clientFirstName" size="36" type="text" value="">
+                        </dd>
+                        <dt class=" fillable-row">
+                            Last name
+                            <span>
+                                <em>*</em>
+                            </span>
+                        </dt>
+                        <dd class="fillable-row">
+                            <input class="form-data-input" id="clientLastName"  maxlength="50" name="clientLastName" size="36" type="text" value="">
+                        </dd>
+                        <dt id="address" class="fillable-row">
+                            Home address
+                            <span>
+                                <em>*</em>
+                            </span>
+                        </dt>
+                        <dd class="fillable-row">
+                            <input class="orm-data-input" id="address" maxlength="50" name="address" size="36" type="text" value="">
+                        </dd>
+                    </dl>
+                    </div><!-- ./Form data Contact information -->
+
+                    <!-- Form data Obligations -->
+                    <div class="tab">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Type of obligation</th>
+                                    <th>Financer</th>
+                                    <th>Term (year)</th>
+                                    <th>Amount/limit</th>
+                                    <th>Monthly payment</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>
+                                        <select class="select-obligationtype form-data-input" id="obligationType" name="obligationType">
+                                            <option value="--select--"></option>
+                                            <option value="Loan">Loan</option>
+                                            <option value="Leasing">Leasing</option>
+                                        </select>
+                                    </td>
+                                    <td>
+                                        <select class="form-data-input" id="obligationOwner" name="obligationOwner">
+                                            <option value="--select--"></option>
+                                            <option value="LHV">LHV</option>
+                                            <option value="SEB">SEB</option>
+                                            <option value="Danske">Danske</option>
+                                        </select>
+                                    </td>
+                                    <td>
+                                        <input class="form-data-input" id="obligation_due"  maxlength="4" name="obligationDue" size="4" type="text" value="">
+                                    </td>
+                                    <td>
+                                        <input class="form-data-input" id="obligation_limit"  maxlength="11" name="obligationLimit" onchange="" placeholder="EUR" size="5" type="text" value="">
+                                    </td>
+                                    <td>
+                                        <input class="form-data-input" id="obligation_payment"  maxlength="10" name="obligationPayment" onchange="" placeholder="EUR" size="5" type="text" value="">
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div><!-- ./Form data Obligations -->
+
+                    <!-- Form data Income -->
+                    <div class="tab">
+                        <dl class="query-params-list ">
+                            <dt id="incomeOwner" class="fillable-row">
+                                Net salary
+                                <span>
+                                    <em>*</em>
+                                </span>
+                            </dt>
+                            <dd class="fillable-row">
+                                <input class="form-data-input" id="netIncome" onkeyup="calculate()" maxlength="10" name="incomeOwner" onchange="" size="7" type="text" value="">
+                                <span class="currency">EUR</span>
+                            </dd>
+                            <dt id="incomeOther" class="fillable-row">
+                                Sum of other monthly income
+                                <span>
+                                    <em>*</em>
+                                </span>
+                            </dt>
+                            <dd class="fillable-row">
+                                <input class="form-data-input" id="otherIncome" onkeyup="calculate()" maxlength="10" name="incomeOther" onchange="" size="7" type="text" value="">
+                                <span class="currency">EUR</span>
+                            </dd>
+                            <dt class="text-row">
+                                Total income
+                            </dt>
+                            <dd class="text-row">
+                                <span class="currency">
+                                    <span id="totalIncome" class="color">0.00</span>&nbsp;EUR<input id="incomeTotal" name="incomeTotal" type="hidden" value="0.00">
+                                </span>
+                            </dd>
+                        </dl>
+                    </div><!-- ./Form data Income -->
+
+                    <div class="tab">
+                        <dl class="query-params-list">
+                            <dt id="info" class="fillable-row">
+                                Additional information (please add here link of car advertisement)
+                                <span>
+                                    <em>*</em>
+                                </span>
+                            </dt>
+                            <dd class="fillable-row">
+                                <textarea class="formInput form-data-input" cols="60" id="info"  name="info" value="" rows="5"></textarea>
+                            </dd>
+                            <dt class="checkable-row">&nbsp;</dt>
+                            <dd class="checkable-row chckBoxContainer">
+                                <input id="termsAndConditions" class="form-data-input" name="termsAndConditions" type="checkbox">
+                                <label for="termsAndConditionsr" class="termCond">I have read and I accept the terms and conditons
+                                    
+                                </label>
+                                <span>
+                                    <em>*</em>
+                                </span>
+                            </dd>
+                        </dl>
+                    </div>
+
+                    <div class="form-button-bar">
+                        <a href="#" id="prevBtn" class="button -negative -back" onclick="nextPrev(-1)">Back</a>
+                        <a href="#" id="nextBtn" class="button next" onclick="nextPrev(1)">Forward</a>
+
+                    </div>
+                </form>
+            </section>
+        </div>
+    </main>
+    <footer>
+        <div class="orange-stripe"></div>
+        <div class="footer"></div>
+    </footer>
+</body>
+</html>

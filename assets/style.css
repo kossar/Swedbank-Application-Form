@@ -1,0 +1,579 @@
+/* ======================== Global rules ==================== */
+
+body {
+    margin: 0;
+    font: 15px/22px Helvetica, Arial, sans-serif;
+}
+h1 {
+    margin-top: 0;
+    color: #F35B1C;
+}
+h2, h3, p {
+    color: #512B2B;
+    margin-top: 0;
+}
+.currency {
+    color: #F45B1C;
+    margin-left: 5px;
+}
+.button {
+    text-decoration: none;
+    color: #ffffff;
+    background-color: #EE7023;
+    border: 1px solid #ee7023;
+    border-radius: 3px;
+    padding: 15px 20px;
+    font-size: 18px;
+    -moz-transition: background-color 0.5s ease-in;
+    -o-transition: background-color 0.5s ease-in;
+    -webkit-transition: background-color 0.5s ease-in;
+    transition: background-color 0.5s ease-in;
+    display: inline-block;
+    
+}
+.button:hover {
+    background-color: #f35b1c;
+}
+ul li {
+    list-style: none;
+}
+/* ======================== ./Global rules ========================= */
+
+
+/* ======================== Header area ============================ */
+.orange-stripe {
+    height: 10px;
+    width: 100%;
+    background-image: -moz-linear-gradient(to right, #FA7F25, #FDBE13);
+    background-image: -o-linear-gradient(to right, #FA7F25, #FDBE13);
+    background-image: -webkit-linear-gradient(to right, #FA7F25, #FDBE13);
+    background-image: linear-gradient(to right, #FA7F25, #FDBE13);
+}
+.header-div {
+    margin-left: 150px;
+    margin-right: 150px;
+   
+}
+.logo {
+    padding: 10px;
+    width: 150px;
+}
+.header-div-wrapper {
+    border-bottom: solid 1px #ECE8E3;
+}
+/* =========================  ./Header area  ========================= */
+
+/* ================= ========  Main area ============================= */
+main {
+    background-color: #FBF2EA;
+    padding-top: 50px;
+}
+.content {
+    margin-left: 150px;
+    margin-right: 150px;
+}
+
+.campaign {
+    color: #A38B80;
+    font-size: 14px;
+}
+
+.offer {
+    display: -webkit-flex;
+    display: flex;
+}
+.offer-text {
+    padding: 10px;
+}
+/* --- Styling list ---- */
+.offer-list li {
+    position: relative;
+    padding-left: 15px;
+}
+.offer-list li:before {
+    content: "";
+    position: absolute;
+    width: 8px;
+    height: 14px;
+    left: 0;
+    top: 1px;
+    border-top-right-radius: 8px;
+    border-bottom-right-radius: 8px;
+    background: #EE7023;
+}
+.frame {
+    display: block;
+}
+/* ===================== ./Main area ======================= */
+
+/* ===================== Table area ========================= */
+.options {
+    background-color: #FFFFFF;
+    padding: 20px;
+    border-radius: 3px;
+}
+table {
+    table-layout: fixed;
+    width: 100%;
+    border-collapse: collapse;
+}
+
+th {
+    border-top: solid 1px #ebe7e2;
+    border-bottom: solid 1px #ebe7e2; 
+}
+td {
+    border-bottom: solid 1px #ebe7e2;
+}
+th, td {
+    padding: 13px 10px;
+    display: table-cell;
+}
+
+/* ---- Light blue bg color for a Table 2nd & 3rd column header ---- */
+.tbl table thead th:not(:first-child) {
+    background-color: #E9F7FB;
+    color: #512B2B;
+}
+/* ----- Bg color for 2nd & 3rd column in tbody ---*/
+.tbl table tbody tr td:not(:first-child) {
+    text-align: center;
+    background-color: #F4FBFD;
+    color: #512B2B;
+}
+
+/* -------- White bg gap between second and third column of a table -------- */
+.tbl table thead th:nth-child(3), .tbl table tbody tr td:nth-child(3) {
+    position: relative;
+}
+.tbl table thead th:nth-child(3):before, .tbl table tbody tr td:nth-child(3):before {
+    position: absolute;
+    content: "";
+    width: 4px;
+    height: 100%;
+    left: 0;
+    top: 0;
+    background: #FFFFFF;
+}
+/* ------ Font color for Table first column ----- */
+.tbl table tbody tr td:first-child {
+    color: #A38B80;
+}
+
+
+/* ============================ ./Table area ============================ */
+
+/* ========================== Progress bar =============================== */
+
+
+.questions {
+    background-color: #FDFAF7;
+    display: -webkit-flex;
+    display: flex;
+    padding: 15px 25px;
+    counter-reset: step;
+    margin: 0;
+
+}
+.questions li {
+    flex-grow: 1;
+    flex-basis: 0;
+    position: relative;
+    text-align: center;
+    color: #497893;
+}
+.questions li:before {
+    content: counter(step);
+    counter-increment: step;
+    font-weight: 700;
+    width: 36px;
+    height: 36px;
+    line-height: 36px;
+    display: block;
+    text-align: center;
+    margin: 0 auto 10px auto;
+    border-radius: 50%;
+    background-color: #D4C4BC;
+    color: #FFFFFF;
+    position: relative;
+    z-index: 1;
+}
+.questions li:after {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 3px;
+    background-color: #FBF2EA;
+    top: 18px;
+    left: -50%;
+    z-index: 0;
+
+}
+.questions li:first-child::after {
+    content: none;
+}
+.questions li.active::before{
+    background-color: #FDC129;
+}
+.questions li.passed::before {
+    content: "\2713";
+    font-weight: bold;
+    background-color: #99CC66;
+}
+.questions li.passed::after {
+    background-color: #99CC66;
+}
+
+/* ======================== ./Progress bar =================== */
+
+/* ======================== Form =============================== */
+.color {
+    color: #512B2B;
+}
+.tab {
+    display: none;
+    background: #FFFFFF;
+    padding: 10px;
+}
+
+.query-params-list {
+    display: -webkit-flex;
+    display: flex;
+    flex-flow: row wrap;
+    margin: 0;
+}
+.query-params-list dt {
+    color: #A38B80;
+    justify-content: flex-end;
+}
+.query-params-list dd {
+    color: #512B2B;
+}
+.checkable-row, .fillable-row, .text-row  {
+    display: -webkit-flex;
+    display: flex;
+    width: 48%;
+    padding: 10px;
+
+}
+dd {
+    overflow: hidden;
+    margin: 0;
+}
+.costOfTheVehicleRow {
+    position: relative;
+}
+/* ========== Tooltip =============*/
+.help-action {
+    position: absolute;
+    right: 0;
+    top: 20px;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background-color: #D4B8A3;
+}
+.help-action::after{
+    content: "\003F";
+    position: absolute;
+    color: black;
+    right: 6px;
+    top: -10px;
+}
+.help-action:hover {
+    background-color: #FDBE13;
+}
+.help-action:hover::after {
+    color: #FFFFFF;
+}
+
+.tipText {
+    visibility: hidden;
+    width: 120px;
+    text-align: center;
+    padding: 10px;
+    border-radius: 3px;
+    z-index: 1;
+    position: absolute;
+    background-color: #EADED7;
+    line-height: 18px;
+    text-align: center;
+    top: 150%;
+    left: 50%;
+    margin-left: -60px;
+}
+.tipText::after {
+    content: "";
+    position: absolute;
+    bottom: 100%;
+    left: 50%;
+    margin-left: -20px;
+    border-width: 10px;
+    border-style: solid;
+    border-color: transparent transparent #EADED7 transparent;
+}
+.help-action:hover .tipText{
+    visibility: visible;
+}
+#cost {
+    margin-right: 20px;
+}
+/* ===================== ./Tooltip =====================*/
+/* ============== Radio buttons ============== */
+.radioBtns {
+    display: flex;
+    flex-flow: row;
+    position: relative;
+    
+    line-height: 28px;
+} 
+input[type=radio] {
+    visibility: hidden;
+}
+.radio-display {
+    
+    display: flex;
+    flex-flow: row;
+    margin-left: -20px;
+    padding-left: 32px;
+    margin-right: 10px;
+}
+
+.radio-display::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 26px;
+    width: 26px;
+    border: 1px solid #AFDDD6;
+    display: block;
+    border-radius: 50%;
+    text-align: center;
+    margin: auto 5px auto 0;
+    cursor: pointer;
+}
+/*
+.radioBtns input:checked ~ .radio-display:hover::before {
+    border: 2px solid #000000;
+    
+}
+.radioBtns input:checked ~ .radio-display:hover::after {
+    background-color: #FDBE13;
+} */
+.radio-display:hover::before {
+    border: 1px solid #FDBE13;
+    background-color: #FDBE13;
+}
+.radioBtns .radio-display::after {
+    content: "";
+    position: absolute;
+    display: none;
+}
+.radioBtns input:checked ~ .radio-display::after {
+    display: block;
+  }
+.radio-display::after {
+    top: 4px;
+    left: 4px;
+    height: 20px;
+    width: 20px;
+    background-color: #EE7023; 
+    display: block;
+    border-radius: 50%;
+    margin-top: auto;
+    margin-bottom: auto;
+}
+/* ================== ./Radio buttons ================*/
+
+/* ================== input boxes ================== */
+select {
+    background-color: #EBF8F2;
+}
+select, input[type=text], textarea {
+    border: 1px solid #AFDDD6;
+    padding: 10px 15px;
+    font-size: 16px;
+    border-radius: 3px;
+    outline: none;
+}
+select:focus, input[type=text]:focus {
+    box-shadow: 0 0 3px 1px #FDC129;
+}
+
+.tab .query-params-list dt, .tab .query-params-list dd {
+    line-height: 40px;
+    text-align: center;
+}
+/* =========== Check box ============== */
+.chckBoxContainer {
+    position: relative;
+    display: flex;
+    flex-flow: row;
+}
+input[type=checkbox] {
+    opacity: 0;
+    position: absolute;
+    cursor: pointer;
+    height: 26px;
+    width: 26px;
+    bottom: 15px;
+    left: 5px; 
+    z-index: 0;
+}
+.termCond {
+    position: relative;
+    padding-left: 40px;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    cursor: pointer;   
+}
+.termCond::before {
+    display: block;
+    content: "";
+    position: absolute;
+    height: 26px;
+    width: 26px;
+    top: 5px;
+    left: 0;
+    border-radius: 3px;
+    border: 1px solid #AFDDD6;
+
+}
+
+.termCond:hover::before {
+    background-color: #FDBE13;
+    border: 1px solid #FDBE13;
+
+}
+.chckBoxContainer .termCond::after {
+    content: "\2713";
+    color: #FFFFFF;
+    line-height: 26px;
+    position: absolute;
+    text-align: center;
+    display: none;
+}
+.chckBoxContainer input:checked ~ .termCond::after {
+    display: block;
+}
+.chckBoxContainer .termCond::after {
+    height: 26px;
+    width: 26px;
+    border-radius: 3px;
+    background-color: #EE7023;
+    border: 1px solid #EE7023;
+    left: 0;
+    top: 5px;
+}
+.chckBoxContainer .termCond:hover::after {
+    border: 1px solid #FDBE13;
+    background-color: #FDBE13;
+    color: #000000;
+}
+/* ============== Checkbox ============ */
+span em {
+    color: #D03F47;
+}
+/* ===================== ./ Input boxes ============== */
+/* ==========FOrm table ============== */
+.tab table thead th {
+    background-color: #E9F7FB;
+    color: #512B2B;
+}
+.tab table tbody tr td {
+    align-items: center;
+    text-align: center;
+}
+/* ======================== Form buttons ======================== */
+.form-button-bar {
+    background-color: #F8F8F8;
+    position: relative;
+    flex-direction: row;
+    justify-content: space-between;
+    height: 60px;
+    padding: 10px;
+}
+.-back {
+    background-color: #D4B8A3;
+    border-color: #d4b8a3;
+    color: #512b2b;
+    position: absolute;
+    left: 10px;
+}
+.-back::before {
+    content: "\00ab";
+    padding-right: 5px;
+}
+.-back:hover {
+    background-color: #ddcdc4;
+    border-color: #ddcdc4;
+}
+
+.next::after {
+    content: "\00bb";
+    padding-left: 5px;
+}
+.next {
+    position: absolute;
+    right: 10px;
+}
+/* ======================== ./Form buttons ========================== */
+.invalid {
+    border: 1px solid #D03F47!important;
+    background-color: #FFFFFF;
+}
+#costOfTheVehicleRow {
+    display: flex;
+    flex-flow: column;
+}
+.customFormRow {
+    display: flex;
+    flex-flow: row;
+}
+.priceErrorMessage {
+    font-size: 14px;
+    display: flex;
+    align-content: flex-start;
+    line-height: 14px;
+    padding: 5px;
+    color: #D03F47;
+}
+
+/* ======================== ./Form ============================== */
+
+/* ================= Completed page =====================*/
+.summary {
+    background-color: #FFFFFF;
+    padding: 20px;
+    border-radius: 3px;
+}
+.form-header {
+    position: relative;
+}
+.form-header::after {
+    content: "";
+    width: 100%;
+    height: 1px;
+    bottom: 0;
+    left: 0;
+    background-color: #EEEEEE;
+    position: absolute;
+    
+}
+.summary dl dt {
+    color: #A38B80;
+}
+.summary dl dd {
+    color: #512B2B;
+    font-size: 16px;
+    font-weight: 500;
+}
+
+/* ==================== Footer ===================*/
+.footer {
+    height: 300px;
+    background-color: #EBE7E2;
+}
